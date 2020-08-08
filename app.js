@@ -31,5 +31,5 @@ app.get('/~:id/raw', getSnippetRaw);
 app.get('/', home);
 
 
-const PORT = process.env.BIN_PORT || 1998;
+const PORT = process.env.PORT || 1998;
 app.listen(PORT, () => console.log('Listening on port', PORT));
