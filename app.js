@@ -4,6 +4,7 @@ const helmet = require('helmet');
 const rawBody = require('./middleware/rawBody');
 const mongoose = require('./middleware/mongoose');
 const render = require('./middleware/render');
+const isHash = require('./middleware/isHash');
 
 const app = express();
 
@@ -27,6 +28,7 @@ app.post('/fork', fork);
 app.post('/', createSnippet);
 
 app.get('/~:id', getSnippet);
+app.get('/!:hash', isHash, getSnippet);
 app.get('/~:id/raw', getSnippetRaw);
 app.get('/', home);
 
